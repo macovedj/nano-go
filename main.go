@@ -28,7 +28,7 @@ type Response struct {
 
 //go:wasm-module jig
 //go:export httpRequest
-func request(method Method, url string, reqBody []byte) *Response
+func ImportedRequest(method Method, url string, reqBody []byte) *Response
 
 //go:export allocateResponse
 func allocateResponse(status, length int) *Response {
@@ -38,6 +38,6 @@ func allocateResponse(status, length int) *Response {
 //go:export performRequest
 func performRequest(url string) *Response {
 	// GETS DATA, AND WRITES RES TO MEM
-	res := request(POST, url, []byte("something~"))
+	res := ImportedRequest(POST, url, []byte("something~"))
 	return allocateResponse(res.Status, len(string(res.Body)))
 }
