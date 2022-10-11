@@ -1,4 +1,4 @@
-package main
+package nano
 
 type Request struct {
 	Method Method
