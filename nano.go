@@ -1,5 +1,7 @@
 package nano
 
+import "os"
+
 type Request struct {
 	Method Method
 	Url string
@@ -40,4 +42,8 @@ func performRequest(url string) *Response {
 	// GETS DATA, AND WRITES RES TO MEM
 	res := ImportedRequest(POST, url, []byte("something~"))
 	return allocateResponse(res.Status, len(string(res.Body)))
+}
+
+func TestFunction() {
+	os.Stdout.WriteString("Content-Type: text/plain\n\nGolang Testing This Project\n")
 }
