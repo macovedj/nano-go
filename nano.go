@@ -1,3 +1,5 @@
+//go:build tinygo.wasm && wasi
+// +build tinygo.wasm,wasi
 package nano
 
 import "os"
